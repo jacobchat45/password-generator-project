@@ -88,61 +88,25 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-var password = {
-  passwordLength: 0,
- containsUpper: false,
- containsSpecial: false,
- containsLower: false,
-containsNumeric: false,
+var password = ""
 
-}
-var password;
-var promptUser = prompt("How long do you want your password to be?");
-password.passwordLength = promptUser;
-if(promptUser )
+
 // Function to prompt user for password options
 
-function getPasswordOptions() {
-var hasUpper = confirm("Do you want your password to contain upper case letters?");
-var hasLower = confirm("Do you want your password to contain lower case letters?");
-var hasSpec = confirm("Do you want your password to contain special symbols?");
-var hasNumb = confirm("Do you want your password to contain numbers?");
-switch(hasUpper){
-  case true:
-    password.containsUpper = true;
-    break;
-    case false:
-      password.containsUpper = false;
-      break;
-}
-switch(hasLower){
-  case true:
-    password.containsLower = true;
-    break;
-    case false:
-      password.containsLower = false;
-      break;
-}
-switch(hasSpec){
-  case true:
-    password.containsSpecial = true;
-    break;
-    case false:
-      password.containsSpecial = false;
-      break;
-}
-switch(hasNumb){
-  case true:
-    password.containsNumeric = true;
-    break;
-    case false:
-      password.containsNumeric = false;
-      break;
-}
-return;
-}
+function getPassOptions(){
+  userInput = {};
 
-getPasswordOptions();
+  while(true){
+    const newPass = parseInt(prompt("Please enter the length of your password between 10 and 64 char"));
+
+    if(newPass >=10 && newPass <= 64){
+      userInput["length"] = newPass;
+      break;
+    } else if(newPass = NaN){
+         alert("please enter a number");
+    }
+  }
+}
 
 
 // Function for getting a random element from an array
