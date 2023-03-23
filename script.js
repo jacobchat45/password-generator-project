@@ -106,15 +106,36 @@ function getPassOptions(){
          alert("please enter a number");
     }
   }
+
+
+// while loop to get user to confirm characters for their pass
+
+while(Object.values(userInput).includes(true) == false){
+
+  // using prompts to write to userInput object
+  let numbers = confirm("Include numbers in your password?");
+  userInput["numbers"] = numbers;
+
+  let lowercase = confirm("Include lowercase characters in your password?");
+  userInput["lowercase"] = lowercase;
+
+  let uppercase = confirm("Include upperchase characters in your password?");
+  userInput["uppercase"] = uppercase;
+
+  let special = confirm("Would you like special characters in your password?");
+  userInput["special"] = special;
 }
 
+// returning the input to be used  
+return userInput;
+}
 
 // Function for getting a random element from an array
 function getRandom(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-console.log(getRandom(upperCasedCharacters));
+
 
 // Function to generate password with user input
 function generatePassword() {
