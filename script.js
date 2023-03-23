@@ -97,13 +97,13 @@ function getPassOptions(){
   userInput = {};
 
   while(true){
-    const newPass = parseInt(prompt("Please enter the length of your password between 10 and 64 char"));
+    const newPass = parseInt(prompt("Please enter the length of your password between 10 and 64 characters."));
 
     if(newPass >=10 && newPass <= 64){
       userInput["length"] = newPass;
       break;
-    } else if(newPass = NaN){
-         alert("please enter a number");
+    } else if(newPass == NaN){
+         alert("please enter a number between 10-64.");
     }
   }
 
