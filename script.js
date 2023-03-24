@@ -134,13 +134,47 @@ return userInput;
 function getRandom(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
-
-
+// function to check size of the password array
+// function checkSize(array, item){
+//   array.unshift(item);
+//   return true;
+// }
 
 // Function to generate password with user input
 function generatePassword() {
-var passw = "";
+let inputFromUser = getPassOptions();
 
+  let maxLength = inputFromUser.length;
+  password = [];
+
+  let i = 0;
+
+  while(password.length< maxLength){
+ // check our password length and char type and keep adding to the password until
+ // we reach the max length 
+    if (inputFromUser.uppercase == true && password.length < maxLength) {
+      password.push(getRandom(upperCasedCharacters));
+      i++
+
+    };    
+    if (inputFromUser.numeric == true && password.length < maxLength) {
+      password.unshift(getRandom(numericCharacters));
+      i++
+
+    };
+    if (inputFromUser.lowercase == true && password.length < maxLength) {
+      password.unshift(getRandom(lowerCasedCharacters));
+      i++
+
+    };
+       if (inputFromUser.specialChars == true && password.length < maxLength) {
+      password.push(getRandom(specialCharacters));
+      i++
+
+    };
+
+  }
+  return password.join("");
 }
 
 // Get references to the #generate element
